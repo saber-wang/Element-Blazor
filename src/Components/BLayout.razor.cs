@@ -48,7 +48,16 @@ namespace Element
         protected override void OnParametersSet()
         {
             base.OnParametersSet();
-            layoutCssBuilder = HtmlPropertyBuilder.CreateCssStyleBuilder().AddIf(Fit, "height:calc(100vh)").Add(Style);
+            layoutCssBuilder = HtmlPropertyBuilder.CreateCssStyleBuilder();
+            if (North != null)
+            {
+                layoutCssBuilder = layoutCssBuilder.AddIf(Fit, $"height:calc(100vh-{NorthHeight}px)");
+            }
+            else
+            {
+                layoutCssBuilder = layoutCssBuilder.AddIf(Fit, "height:calc(100vh)");
+            }
+            layoutCssBuilder = layoutCssBuilder.Add(Style);
         }
 
         /// <summary>
