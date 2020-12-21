@@ -20,18 +20,18 @@
     <div class="blaz-layout" style="@string.Join(";", styles)" @ref="Container" @onkeydown="KeyDown" @onkeypress="KeyPress" @onkeyup="KeyUp">
         @if (North != null)
         {
-            <div class="blaz-layout-north blaz-layout-card" style="line-height: @(SouthHeight)px;height:@(NorthHeight)px">
+            <div class="blaz-layout-north blaz-layout-card" style="line-height: @(SouthHeight)px;height:@(NorthHeight)px;@NorthStyle">
                 @North
             </div>
         }
         <div class="blaz-layout-container" style="@layoutCssBuilder">
             @if (West != null)
             {
-                <div class="blaz-layout-west blaz-layout-card" style="width:@(WestWidth)px">
+                <div class="blaz-layout-west blaz-layout-card" style="width:@(WestWidth)px;@WestStyle">
                     @West
                 </div>
             }
-            <div class="blaz-layout-center blaz-layout-card"  style="@layoutCssBuilder">
+            <div class="blaz-layout-center blaz-layout-card"  style="@(layoutCssBuilder);@CenterStyle">
                 @if (Center != null)
                 {
                     @Center
@@ -39,7 +39,7 @@
             </div>
             @if (East != null)
             {
-                <div class="blaz-layout-east blaz-layout-card " style="width:@(EastWidth)px">
+                <div class="blaz-layout-east blaz-layout-card " style="width:@(EastWidth)px;@EastStyle">
                     @East
                 </div>
             }
@@ -47,9 +47,9 @@
 
         @if (South != null)
         {
-            <div class="blaz-layout-south blaz-layout-card" style="line-height: @(SouthHeight)px;height:@(SouthHeight)px;">
-                @South
-            </div>
+    <div class="blaz-layout-south blaz-layout-card" style="line-height: @(SouthHeight)px;height:@(SouthHeight)px;@SouthStyle">
+        @South
+    </div>
         }
     </div>
 }

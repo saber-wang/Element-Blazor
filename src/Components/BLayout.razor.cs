@@ -25,6 +25,16 @@ namespace Element
         [Parameter]
         public float SouthHeight { get; set; } = 50;
         [Parameter]
+        public string WestStyle { get; set; }
+        [Parameter]
+        public string CenterStyle { get; set; }
+        [Parameter]
+        public string NorthStyle { get; set; }
+        [Parameter]
+        public string SouthStyle { get; set; }
+        [Parameter]
+        public string EastStyle { get; set; }
+        [Parameter]
         public RenderFragment West { get; set; }
 
         [Parameter]
@@ -51,7 +61,7 @@ namespace Element
             layoutCssBuilder = HtmlPropertyBuilder.CreateCssStyleBuilder();
             if (North != null)
             {
-                layoutCssBuilder = layoutCssBuilder.AddIf(Fit, $"height:calc(100vh-{NorthHeight}px)");
+                layoutCssBuilder = layoutCssBuilder.AddIf(Fit, $"height:calc(100vh - {NorthHeight}px)");
             }
             else
             {
