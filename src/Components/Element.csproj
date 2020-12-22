@@ -4,7 +4,7 @@
 		<TargetFramework>net5.0</TargetFramework>
 		<ApplicationIcon />
 		<OutputType>Library</OutputType>
-		<Version>0.0.7.3-bate001</Version>
+		<Version>0.0.7.3-bate003</Version>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Authors>wzxinchen;Element-Blazor</Authors>
 		<IsPackable>true</IsPackable>

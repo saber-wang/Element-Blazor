@@ -90,6 +90,7 @@ namespace Element
 
             ResetActiveTab(tab);
             RequireRender = true;
+            
             if (OnTabClose.HasDelegate)
             {
                 _ = OnTabClose.InvokeAsync(tab);

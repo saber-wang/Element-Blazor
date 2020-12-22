@@ -38,6 +38,10 @@ namespace Element
         public object Content { get; set; }
 
         /// <summary>
+        /// 当Tag Content 为<seealso cref="Type"/>时的内容的参数
+        /// </summary>
+        public IDictionary<string, object> Parameters { get; set; }
+        /// <summary>
         /// Tab Body 区附加样式
         /// </summary>
         public string BodyStyle { get; set; }
