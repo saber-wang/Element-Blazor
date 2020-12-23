@@ -25,7 +25,7 @@
     {
         var activeOption = DataSource.FirstOrDefault(x => x.IsActive);
         activeContent = activeOption?.Content;
-        parameters = activeOption.Parameters;
+        parameters = activeOption?.Parameters;
         bodyStyle = activeOption?.BodyStyle;
     }
 }
