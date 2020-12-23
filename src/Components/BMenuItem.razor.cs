@@ -91,8 +91,9 @@ namespace Element
             {
                 return false;
             }
-            var uri = new Uri(NavigationManager.Uri);
-            var paths = uri.LocalPath.Split('/').Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
+            var localPath = NavigationManager.Uri.Replace(NavigationManager.BaseUri.TrimEnd('/'),"");
+            //var uri = new Uri(NavigationManager.Uri);
+            var paths = localPath.Split('/').Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
             var menuPaths = route.Split('/').Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
             if (paths.Length != menuPaths.Length)
             {

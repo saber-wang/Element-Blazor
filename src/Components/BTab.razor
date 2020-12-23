@@ -19,11 +19,13 @@
     var classBuilder = HtmlPropertyBuilder.CreateCssClassBuilder()
         .Add("el-tabs", tabType, tabPosition);
     object activeContent = ActiveTab?.ChildContent;
+    IDictionary<string, object> parameters = default;
     var bodyStyle = ActiveTab?.Style;
     if (DataSource != null)
     {
         var activeOption = DataSource.FirstOrDefault(x => x.IsActive);
         activeContent = activeOption?.Content;
+        parameters = activeOption.Parameters;
         bodyStyle = activeOption?.BodyStyle;
     }
 }
@@ -31,7 +33,7 @@
     @if (TabPosition == TabPosition.Bottom)
     {
         <div class="el-tabs__content" style="@bodyStyle" @ref="Content">
-            <BDynamicComponent Component="activeContent"></BDynamicComponent>
+            <BDynamicComponent Component="activeContent" Parameters="parameters"></BDynamicComponent>
         </div>
     }
     <div class="el-tabs__header @headerPosition">
@@ -68,7 +70,7 @@
     @if (TabPosition != TabPosition.Bottom)
     {
         <div class="el-tabs__content" style="@bodyStyle" @ref="Content">
-            <BDynamicComponent Component="activeContent"></BDynamicComponent>
+            <BDynamicComponent Component="activeContent" Parameters="parameters"></BDynamicComponent>
         </div>
     }
 </div>
