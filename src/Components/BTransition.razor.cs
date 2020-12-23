@@ -121,6 +121,7 @@ namespace Element
                     continue;
                 }
             }
+            Console.WriteLine(string.Join(",", currentStyleNames));
             foreach (var styleItem in styles)
             {
                 var styleName = styleItem.Split(':')[0];
@@ -219,7 +220,7 @@ namespace Element
                 clsBuilder = HtmlPropertyBuilder.CreateCssClassBuilder()
                     .Add("blazor-animation")
                     .Add(Cls?.Split(' ') ?? new string[0]);
-
+                
                 await JSRuntime.InvokeVoidAsync("RegisterAnimationBegin", thisRef, animationElement);
                 styleBuilder = HtmlPropertyBuilder.CreateCssStyleBuilder()
                     .Add(InitialStyle?.Split(';') ?? new string[0])

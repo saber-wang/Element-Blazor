@@ -66,14 +66,19 @@
             }
             var clsBuilder = HtmlPropertyBuilder.CreateCssClassBuilder()
                 .Add("el-dialog")
-                .AddIf(option.FullScreen, "is-fullscrren");
+                .AddIf(option.FullScreen, "is-fullscreen");
             var styleBuilder = HtmlPropertyBuilder.CreateCssStyleBuilder()
-                .Add("opacity:0", "top:10px")
-                .Add(width);
+                .AddIf(option.FullScreen, "opacity:0", "top:0px")
+                .AddIf(!option.FullScreen, "opacity:0", "top:10px")
+                .AddIf(!option.FullScreen, width)
+                //解决全屏时因为top:1px而出现的滚动条，全屏设置为top:1px是因为0px时弹窗不能关闭
+                .AddIf(option.FullScreen, "height: calc(100% - 1px)");
             <div @key="option" class="el-dialog__wrapper" style="z-index: @index;">
                 <BTransition role="dialog" OnAllEnd="()=> DialogAnimationEndAsync(option)" OnPause="e=>OnPauseAsync(option)" @ref="option.Element" AutoAdjustPosition="true" aria-modal="true" aria-label="@option.Title" Cls="@clsBuilder.ToString()" InitialStyle="@styleBuilder.ToString()">
                     <Path>
-                        <BTransitionPath top="10vh" opacity="1" Delay="200" Duration="300"></BTransitionPath>
+                       
+                         <BTransitionPath top="@(option.FullScreen?"1px":"10vh")" opacity="1" Delay="200" Duration="300"></BTransitionPath>
+                       
                         <BTransitionPath top="10px" opacity="0" Duration="300" Pause="true"></BTransitionPath>
                     </Path>
                     <Content>
