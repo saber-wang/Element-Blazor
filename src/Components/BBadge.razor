@@ -1,8 +1,8 @@
 ﻿@inherits BComponentBase
-<div class="el-badge">
+<div class="@cssClassBuilder">
     <CascadingValue Value="this">
         @ChildContent
-        <sup class="el-badge__content el-badge__content--@(Type.ToString().ToLower()) is-fixed">
+        <sup class="el-badge__content el-badge__content--@(Type.ToString().ToLower()) is-fixed @(IsDot?"is-dot":"")">
             @Value
         </sup>
     </CascadingValue>

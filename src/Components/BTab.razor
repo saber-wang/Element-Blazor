@@ -32,7 +32,7 @@
 <div class="@classBuilder.ToString()" style="@Style">
     @if (TabPosition == TabPosition.Bottom)
     {
-        <div class="el-tabs__content" style="@bodyStyle" @ref="Content">
+        <div class="el-tabs__content" style="@bodyStyle" @ref="Container">
             <BDynamicComponent Component="activeContent" Parameters="parameters"></BDynamicComponent>
         </div>
     }
@@ -69,7 +69,7 @@
     </div>
     @if (TabPosition != TabPosition.Bottom)
     {
-        <div class="el-tabs__content" style="@bodyStyle" @ref="Content">
+        <div class="el-tabs__content" style="@bodyStyle" @ref="Container">
             <BDynamicComponent Component="activeContent" Parameters="parameters"></BDynamicComponent>
         </div>
     }

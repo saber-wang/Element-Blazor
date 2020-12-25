@@ -12,7 +12,7 @@ using Microsoft.JSInterop;
 
 namespace Element
 {
-    public partial class BTab : BComponentBase
+    public partial class BTab : BComponentBase, IContainerComponent
     {
         internal bool headerSizeUpdated = false;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Element
         /// <summary>
         /// 渲染后的内容区域
         /// </summary>
-        public ElementReference Content { get; set; }
+        public ElementReference Container { get; set; }
 
         /// <summary>
         /// Tab 类型

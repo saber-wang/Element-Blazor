@@ -104,7 +104,7 @@ namespace Element.ServerRender.Pages
 
         protected async Task TabCode_OnRenderCompleteAsync(object tab)
         {
-            await jSRuntime.InvokeVoidAsync("renderHightlight", ((BTabPanel)tab).TabContainer.Content);
+            await jSRuntime.InvokeVoidAsync("renderHightlight", ((BTabPanel)tab).TabContainer.Container);
         }
     }
 }
